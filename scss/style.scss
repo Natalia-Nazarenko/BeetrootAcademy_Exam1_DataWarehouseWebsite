@@ -1,0 +1,347 @@
+@import "variables";
+@import "mixins";
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+}
+ul {
+    list-style-type: none;
+}
+body {
+    background: linear-gradient(180deg, #F6FAFD 0%, #FFFFFF 19.4%);
+}
+.wrapper {
+    width: 75%;
+    max-width: 1118px;
+    margin: 0 auto;
+    @include flex-column;
+    &_main {
+        display: block;
+    }
+}
+.header {
+    background: url("../img/banner.png");
+    background-position: right 10% bottom;
+    background-repeat: no-repeat;
+    background-size: 50%;
+    // height: 120vh;
+    &__nav {
+        display: flex;
+        align-items: center;
+        padding: 30px 0;
+    }
+        &__banner {
+            @include flex-column;
+            justify-content: center;
+            align-items: flex-start;
+            flex-grow: 1;
+        }
+}
+.nav {
+    &__menu {
+        display: flex;
+        flex-grow: 1;
+        margin-left: 10%;
+    }
+    &__logo {
+        width: 10%;
+    }
+    &__btn {
+        width: 18%;
+    }
+    &__input,
+    &__burger {
+        display: none;
+    }
+}
+.menu {
+    &__item {
+        margin-right: 40px;
+        @include text ($font-text, 16px, 1.6, 500, $font-color-text);
+        &:hover {
+            @include text($font-text, 16px, 1.6, 800, $font-color-title);
+            }
+        }
+    &__link-footer {
+        @include text ($font-text, 16px, 2.5, 400, $font-color-title);
+    }
+}
+.banner {
+    &__title-1 {
+        margin-bottom: 50px;
+        width: 60%;
+        @include text ($font-title, 80px, 1.1, 700, $font-color-title);
+    }
+    &__subtitle-5 {
+        margin-bottom: 50px;
+        width: 35%;
+        @include text($font-text, 18px, 1.6, 500, $font-color-text);
+    }
+}
+.btn-demo {
+    @include button;
+    @include text ($font-text, 16px, 1.6, 500, $font-color-text);
+    letter-spacing: 0.5%;
+    background: #FFFFFF;
+    box-shadow: 0px 5px 5px #4b5d681a;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 150px;
+    & img {
+        margin-left: 10px;
+    }
+}
+.btn-regular {
+    @include button;
+    @include text ($font-text, 16px, 1.6, 500, #FFFFFF);
+    background: #9C69E2;
+    width: 15%;
+    min-width: 130px;
+    &_pink {
+        background: #F063B8;
+    }
+}
+.section {
+    &_pink {
+        background: #f063b826;
+        border-radius: 50px;
+        margin-top: 100px;
+        display: flex;
+        align-items: center;
+        padding: 5% 8%;
+    }
+    &__img {
+        object-fit: contain;
+        & img {
+            width: 100%;
+        }
+    }
+    &__text {
+        @include text($font-text, 18px, 1.6, 500, $font-color-text);
+        margin-top: 40px;
+    }
+    &__content {
+        width: 60%;
+        margin-left: 8%;
+    }
+    &_features {
+        @include flex-column;
+        align-items: center;
+        padding: 150px 0;
+    }
+    &__blocks {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: 100px;
+    }
+    &_testimonials {
+        background: #9C69E2;
+        border-radius: 50px;
+        @include flex-column;
+        justify-content: center;
+        padding: 100px 0;
+        margin-bottom: 200px;
+    }
+    &__review {
+        background: #FFFFFF;
+        box-shadow: 0px 15px 0px 0px #8759c7;
+        border-radius: 20px;
+        display: flex;
+        width: 55%;
+        margin: 0 auto;
+        padding: 50px 5%;
+    }
+    &__subtitle-5 {
+        @include text($font-text, 18px, 1.6, 500, $font-color-text);
+        margin: 0 15%;
+        text-align: center
+        }
+}
+.title-2 {
+    @include title-2;
+    &_features {
+        margin-bottom: 50px;
+    }
+    &_white {
+        color: #FFFFFF;
+        margin-bottom: 80px;
+        margin-left: 90px;
+    }
+}
+.blocks {
+    &__item {
+        width: 45%;
+        display: flex;
+        margin-bottom: 50px;
+        padding: 0 7% 0 17%;
+        max-width: 442px;
+        height: 358px;
+        position: relative;
+        &_search {
+            background: url("../img/search-bg.png");
+            @include background;
+        }
+        &_access {
+            background: url("../img/access-bg.png");
+            @include background;
+        }
+        &_print {
+            background: url("../img/print-bg.png");
+            @include background;
+        }
+        &_security {
+            background: url("../img/security-bg.png");
+            @include background;
+        }
+    }
+}
+.item {
+    &__content {
+        @include flex-column;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        position: relative;
+    }
+    &__button {
+        border: none;
+        outline: none;
+        background: transparent;
+        @include text($font-text, 16px, 1.6, 800, $font-color-title);
+        position: relative;
+        &::after {
+            content: url("../img/arrow.svg");
+            position: absolute;
+            right: -40px;
+            top: 2px;
+            width: 20px;
+            height: 14px;
+            transition: all 0.2s;
+        }
+        &:hover::after {
+        transform: translateX(20px);
+        }
+    }
+    &__img {
+       position: absolute;
+       top: 50%;
+       left: -20%;
+       transform: translateY(-50%);
+       object-fit: contain;
+       width: 50%;
+       & img {
+           width: 100%;
+       }
+    }
+    &__title {
+        @include text($font-title, 24px, 1.3, 400, $font-color-title);
+    }
+    &__text {
+        @include text($font-text, 16px, 1.6, 400, $font-color-text);
+    }
+}
+.review {
+    &__content {
+        margin-left: 30px;
+    }
+    &__title {
+        @include text($font-text, 18px, 1.6, 900, $font-color-title);
+    }
+    &__subtitle {
+        @include text($font-text, 14px, 1.6, 500, #9C69E2);
+        margin-bottom: 20px;
+    }
+    &__text {
+        @include text($font-text, 18px, 1.8, 400, $font-color-text);
+    }
+}
+.footer {
+    position: relative;
+    &::before {
+        content: "";
+        width: 100%;
+        height: 2px;
+        background: #9C69E2;
+        opacity: 0.2;
+        display: inline-block;
+        position: absolute;
+        top: -80px;
+    }
+    &__block {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 100px;
+    }
+    &__buttons {
+        width: 40%;
+        display: flex;
+        align-self: center;
+    }
+    &__btn {
+        width: 50%;
+        margin-left: 30px;
+    }
+    &__subtitle-5 {
+        @include text($font-text, 18px, 1.6, 500, $font-color-text);
+        margin-top: 20px;
+    }
+}
+.block {
+    &__contact {
+            margin-right: 70px;
+            position: relative;
+            top: -7px;
+    }
+    &_rights {
+        @include text ($font-text, 12px, 1.8, 400, $font-color-title);
+        letter-spacing: 0.01em;
+    }
+    &__title {
+        @include text ($font-text, 16px, 1.6, 900, $font-color-title);
+        margin-bottom: 30px;
+    }
+}
+.contact {
+    &__address {
+        @include text ($font-text, 16px, 1.8, 600, $font-color-title);
+        margin-bottom: 10px;
+    }
+    &__mail {
+        @include text ($font-text, 16px, 1.8, 400, $font-color-title);
+    }
+    &__logo {
+        display: flex;
+        align-items: center;
+        padding-bottom: 60px;
+    }
+}
+.logo {
+    &__text {
+        @include text ($font-text, 20px, 1.6, 900, $font-color-title);
+        margin-left: 20px;
+    }
+}
+.sp-list {
+    display: flex;
+    &__item {
+    margin-right: 15px;
+    }
+    &__link svg {
+       width: 50px;
+       height: 50px;
+       fill: #212353;
+       opacity: 0.1;
+       &:hover {
+           opacity: 1;
+           transition: all 0.3s;
+       }
+    }
+}
+@import "media-queries";
